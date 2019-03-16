@@ -8,6 +8,12 @@
 
 #import "UserProfile.h"
 
+@interface UserProfile ()
+
++ (NSString *) createUserIdWithFirstName: (NSString *)firstName andLastName: (NSString *) lastName;
+
+@end
+
 @implementation UserProfile
 
 -(id)initWithDictionary:(NSDictionary *)userDictionary {
@@ -27,6 +33,22 @@
 //        _invitationCode = userDictionary[INVITATION_CODE_KEY];
     }
     return self;
+}
+
+- (id)initWithFirstName:(NSString *)firstName AndLast:(NSString *)lastName andEmail:(NSString *)email andPhone:(NSString *)phone {
+    if((self = [super init])) {
+        _userId = [UserProfile createUserIdWithFirstName:firstName andLastName:lastName];
+        _firstName = firstName;
+        _lastName = lastName;
+        _email = email;
+        _phoneNumber = phone;
+    }
+    return self;
+}
+
++ (NSString *)createUserIdWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName {
+    NSArray *array = [[NSArray alloc] initWithObjects:[firstName lowercaseString], [lastName lowercaseString], nil];
+    return [array componentsJoinedByString:@"-"];
 }
 
 //-(NSString *)description {

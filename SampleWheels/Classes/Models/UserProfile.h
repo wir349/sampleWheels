@@ -12,11 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UserProfile: NSObject
 
-@property(nonatomic) NSInteger userId;
-@property(nonatomic, retain) NSString * email;
-@property(nonatomic, retain) NSString * firstName;
-@property(nonatomic, retain) NSString * lastName;
-@property(nonatomic, retain) NSString * phone;
+@property(nonatomic, copy) NSString * userId;
+@property(nonatomic, copy) NSString * email;
+@property(nonatomic, copy) NSString * firstName;
+@property(nonatomic, copy) NSString * lastName;
+@property(nonatomic, copy) NSString * phoneNumber;
 
 
 ////@property (nonatomic, retain)  NSString * invitationCode;
@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(id)initWithDictionary:(NSDictionary *)userDictionary;
 
--(id)initWithUserId:(NSDictionary *)userDictionary;
+-(id)initWithFirstName:(NSString *)firstName AndLast:(NSString *)lastName andEmail: (NSString *)email andPhone:(NSString *)phone;
 
 //+(UserModel*) getSignedInUser;
 
