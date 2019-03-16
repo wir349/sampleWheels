@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7E6D33A1223D5B8500056DFC /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E6D33A0223D5B8500056DFC /* Onboarding.storyboard */; };
+		7E6D33A4223D5C5800056DFC /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6D33A3223D5C5800056DFC /* UserProfile.m */; };
 		7E83B62D223BEBB700E681BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E83B62C223BEBB700E681BA /* AppDelegate.m */; };
 		7E83B630223BEBB700E681BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E83B62F223BEBB700E681BA /* ViewController.m */; };
 		7E83B633223BEBB700E681BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E83B631223BEBB700E681BA /* Main.storyboard */; };
@@ -18,6 +19,8 @@
 
 /* Begin PBXFileReference section */
 		7E6D33A0223D5B8500056DFC /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		7E6D33A2223D5C5800056DFC /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
+		7E6D33A3223D5C5800056DFC /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
 		7E83B628223BEBB700E681BA /* SampleWheels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleWheels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E83B62B223BEBB700E681BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7E83B62C223BEBB700E681BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 		7E76E148223D54B60056B652 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7E6D33A2223D5C5800056DFC /* UserProfile.h */,
+				7E6D33A3223D5C5800056DFC /* UserProfile.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E6D33A4223D5C5800056DFC /* UserProfile.m in Sources */,
 				7E83B630223BEBB700E681BA /* ViewController.m in Sources */,
 				7E83B63B223BEBBC00E681BA /* main.m in Sources */,
 				7E83B62D223BEBB700E681BA /* AppDelegate.m in Sources */,
