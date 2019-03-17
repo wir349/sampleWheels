@@ -18,9 +18,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 
--(void)setupWithTitle:(NSString *)title andFieldValue:(NSString *)fieldValue;
+-(void)setupWithTitle:(NSString *)title;
 
 -(void)setErrorText:(NSString *)error;
+
+-(BOOL)isEditing;
+
+- (void)setAsEditing:(BOOL)editing withValue:(NSString *)value;
 
 @end
 

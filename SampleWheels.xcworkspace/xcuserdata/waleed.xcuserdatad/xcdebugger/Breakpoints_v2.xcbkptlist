@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleWheels/Classes/Coordinators/AppCoordinator.m"
-            timestampString = "574545768.975118"
+            timestampString = "574556913.7457041"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleWheels/Classes/Coordinators/Onboarding/OnboardingFlowCoordinator.m"
-            timestampString = "574545768.975189"
+            timestampString = "574556913.745833"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "-dealloc"
             landmarkType = "7">
          </BreakpointContent>
@@ -38,16 +38,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SampleWheels/Classes/Coordinators/Onboarding/OnboardingFlowCoordinator.m"
-            timestampString = "574545768.975245"
+            filePath = "SampleWheels/ViewControllers/Onboarding/SignUpReviewViewController.m"
+            timestampString = "574556913.745943"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "-navigateToReviewVCWithProfile:"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SampleWheels/ViewControllers/Onboarding/SignUpReviewViewController.m"
+            timestampString = "574556913.746659"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SampleWheels/Classes/Coordinators/Onboarding/OnboardingFlowCoordinator.m"
-            timestampString = "574545768.975291"
+            filePath = "SampleWheels/Views/ReviewTableViewCell.m"
+            timestampString = "574556913.747066"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "-didSubmitFormWithProfile:"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-setAsEditing:withValue:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,13 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SampleWheels/ViewControllers/Onboarding/SignUpFormViewController.m"
-            timestampString = "574545768.975343"
+            filePath = "SampleWheels/Views/ReviewTableViewCell.m"
+            timestampString = "574556913.747154"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "-validatePhoneNumber"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "-setupWithTitle:andFieldValue:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

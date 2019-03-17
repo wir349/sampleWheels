@@ -8,6 +8,10 @@
 
 #import "ReviewTableViewCell.h"
 
+@interface ReviewTableViewCell ()
+
+@end
+
 @implementation ReviewTableViewCell
 
 - (void)awakeFromNib {
@@ -21,14 +25,39 @@
     // Configure the view for the selected state
 }
 
--(void)setupWithTitle:(NSString *)title andFieldValue:(NSString *)fieldValue {
+-(void)setupWithTitle:(NSString *)title {
     self.titleLabel.text = title;
-    self.textLabel.text = fieldValue;
     self.errorLabel.text = @"";
 }
 
 - (void)setErrorText:(NSString *)error {
     self.errorLabel.text = error;
 }
+
+-(BOOL)isEditing {
+    if (_editButton.imageView.image == [UIImage imageNamed:@"pencil"]) {
+        return false;
+    }
+    return true;
+}
+
+- (void)setAsEditing:(BOOL)editing withValue:(NSString *)value {
+    if (editing) {
+            //Set to editing mode
+        [_editButton setImage:[UIImage imageNamed:@"checkmark"] forState:UIControlStateNormal];
+        [_fieldValue setHidden:YES];
+        [_textField setText:value];
+        [_textField setHidden:NO];
+    }
+    else {
+            //Set to normal mode
+        [_editButton setImage:[UIImage imageNamed:@"pencil"] forState:UIControlStateNormal];
+        [_textField setHidden:YES];
+        [_fieldValue setText:value];
+        [_fieldValue setHidden:NO];
+    }
+}
+
+
 
 @end

@@ -65,10 +65,11 @@
     [_navController pushViewController:cameraVC animated:true];
 }
 
+    //TODO: Removed this profile
 - (void)navigateToReviewVCWithProfile:(UserProfile *)profile {
     SignUpReviewViewController *reviewVC = [[self getOnboardStoryboard] instantiateViewControllerWithIdentifier:@"review"];
     reviewVC.delegate = self;
-    reviewVC.profile = profile;
+//    reviewVC.profile = profile;
     [_navController pushViewController:reviewVC animated:true];
 }
 
@@ -87,6 +88,11 @@
 }
 
     //MARK: SignUpReviewVCDelegate Methods
+
+- (UserProfile *)savedProfile {
+    UserProfile *saved = [[UserProfile alloc] initWithFirstName:@"Waleed" AndLast:@"Rahman" andEmail:@"wir349@gmail.com" andPhone:@"1234567890"];
+    return saved;
+}
 
 - (void)updateEmailTo:(nonnull NSString *)email forProfile:(nonnull UserProfile *)profile {
     //Save to DB

@@ -9,17 +9,29 @@
 #import "SignUpReviewViewController.h"
 #import "ReviewTableViewCell.h"
 
+typedef enum {
+    firstName = 0,
+    lastName = 1,
+    emailAddress = 2,
+    phoneNumber = 3,
+    profilePic = 4
+} UserProfileField;
+
 @interface SignUpReviewViewController ()
+
+@property (nonatomic) NSMutableArray *editingStatus;
 
 @end
 
 @implementation SignUpReviewViewController
 
 - (void)viewDidLoad {
+    _editingStatus = [[NSMutableArray alloc] initWithObjects:@NO, @NO, @NO, @NO, @NO, nil];
     [super viewDidLoad];
 
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.rowHeight = 85;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -30,27 +42,33 @@
     // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row != 4) {
+    if (indexPath.row != profilePic) {
         ReviewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"default" forIndexPath:indexPath];
         if (cell == nil) {
             cell = [[ReviewTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"default"];
         }
+        UserProfile *profile = [self.delegate savedProfile];
+        BOOL editingStatus = ((NSNumber *)self.editingStatus[indexPath.row]).boolValue;
         switch (indexPath.row) {
-            case 0:
-                [cell setupWithTitle:@"First Name:" andFieldValue:self.profile.firstName];
+            case firstName:
+                [cell setupWithTitle:@"First Name:"];
                 cell.textField.keyboardType = UIKeyboardTypeAlphabet;
+                [cell setAsEditing:editingStatus withValue:profile.firstName];
                 break;
-            case 1:
-                [cell setupWithTitle:@"Last Name:" andFieldValue:self.profile.lastName];
+            case lastName:
+                [cell setupWithTitle:@"Last Name:"];
                 cell.textField.keyboardType = UIKeyboardTypeAlphabet;
+                [cell setAsEditing:editingStatus withValue:profile.lastName];
                 break;
-            case 2:
-                [cell setupWithTitle:@"Email Address:" andFieldValue:self.profile.email];
+            case emailAddress:
+                [cell setupWithTitle:@"Email Address:"];
                 cell.textField.keyboardType = UIKeyboardTypeEmailAddress;
+                [cell setAsEditing:editingStatus withValue:profile.email];
                 break;
-            case 3:
-                [cell setupWithTitle:@"Phone Number:" andFieldValue:self.profile.phoneNumber];
+            case phoneNumber:
+                [cell setupWithTitle:@"Phone Number:"];
                 cell.textField.keyboardType = UIKeyboardTypeNumberPad;
+                [cell setAsEditing:editingStatus withValue:profile.phoneNumber];
                 break;
             default:
                 break;
@@ -62,15 +80,20 @@
     }
 }
 
+- (IBAction)editButtonPressed:(id)sender {
+    CGPoint hitpoint = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *hitIndex = [self.tableView indexPathForRowAtPoint:hitpoint];
+//    ReviewTableViewCell *cell = (ReviewTableViewCell *)[self.tableView cellForRowAtIndexPath:hitIndex];
+    BOOL editingStatus = ((NSNumber *)self.editingStatus[hitIndex.row]).boolValue;
+    if (editingStatus == YES) {
+        self.editingStatus[hitIndex.row] = @NO;
+    }
+    else {
+        self.editingStatus[hitIndex.row] = @YES;
+    }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [self.tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths:@[hitIndex] withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView endUpdates];
 }
-*/
-
 @end
