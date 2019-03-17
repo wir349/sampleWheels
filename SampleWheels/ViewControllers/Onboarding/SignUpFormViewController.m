@@ -1,28 +1,39 @@
-//
-//  SignUpFormViewController.m
-//  SampleWheels
-//
-//  Created by Waleed Rahman on 3/15/19.
-//  Copyright © 2019 Waleed. All rights reserved.
-//
+    //
+    //  SignUpFormViewController.m
+    //  SampleWheels
+    //
+    //  Created by Waleed Rahman on 3/15/19.
+    //  Copyright © 2019 Waleed. All rights reserved.
+    //
 
 #import "SignUpFormViewController.h"
 #import "Coordinator.h"
+#import "ValidationHelper.h"
+
+@interface NSString (StripWhiteSpace)
+
+- (NSString *) removeAllWhitespace;
+
+@end
+
+@implementation NSString (StripWhiteSpace)
+
+- (NSString *) removeAllWhitespace
+{
+    return [self stringByReplacingOccurrencesOfString:@"\\s" withString:@""
+                                              options:NSRegularExpressionSearch
+                                                range:NSMakeRange(0, [self length])];
+}
+
+@end
 
 @interface SignUpFormViewController ()
 
-//This could possibly be moved to a separate layer
 - (BOOL) validateAllFields;
 - (BOOL) validateFirstName;
 - (BOOL) validateLastName;
 - (BOOL) validateEmail;
 - (BOOL) validatePhoneNumber;
-
-
-
-- (BOOL) isTextFieldEmpty:(UITextField *) textField;
-- (BOOL) doesTextFieldContainNumbers:(UITextField *) textField;
-- (BOOL) doesTextFieldContainOnlyNumbers:(UITextField *) textField;
 
 @end
 
@@ -47,22 +58,25 @@
     [self clearErrorLabels];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+        //[[self.view viewWithTag:textField.tag+1] becomeFirstResponder];
+    
+    UIView *view = [self.view viewWithTag:textField.tag + 1];
+    if (!view)
+        [self submitButtonPressed: self];
+    else
+        [view becomeFirstResponder];
+    return YES;
+}
+
 - (void)clearErrorLabels {
-    //I know there's a discussion around using instance variables vs. public properties. I used to have a strong opinion on it but I've forgotten the details. Maybe I'll revisit it in the future.
+        //I know there's a discussion around using instance variables vs. public properties. I used to have a strong opinion on it but I've forgotten the details. Maybe I'll revisit it in the future.
     self.firstNameErrorLabel.text = @"";
     self.lastNameErrorLabel.text = @"";
     self.emailErrorLabel.text = @"";
     self.phoneNumberErrorLabel.text = @"";
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (BOOL) validateAllFields {
     BOOL firstNameValidation = [self validateFirstName];
@@ -73,11 +87,12 @@
 }
 
 - (BOOL)validateFirstName {
-    if ([self isTextFieldEmpty:self.firstNameTextField]) {
+    NSString *text = [self.firstNameTextField.text removeAllWhitespace];
+    if ([ValidationHelper isTextEmpty:text]) {
         self.firstNameErrorLabel.text = @"First Name cannot be empty";
         return false;
     }
-    if ([self doesTextFieldContainNumbers:self.firstNameTextField]) {
+    if ([ValidationHelper doesTextContainNumbers:text]) {
         self.firstNameErrorLabel.text = @"First Name cannot contain numbers";
         return false;
     }
@@ -86,11 +101,12 @@
 }
 
 - (BOOL)validateLastName {
-    if ([self isTextFieldEmpty:self.lastNameTextField]) {
+    NSString *text = [self.lastNameTextField.text removeAllWhitespace];
+    if ([ValidationHelper isTextEmpty:text]) {
         self.lastNameErrorLabel.text = @"Last Name cannot be empty";
         return false;
     }
-    if ([self doesTextFieldContainNumbers:self.lastNameTextField]) {
+    if ([ValidationHelper doesTextContainNumbers:text]) {
         self.lastNameErrorLabel.text = @"Last Name cannot contain numbers";
         return false;
     }
@@ -99,11 +115,12 @@
 }
 
 - (BOOL)validateEmail {
-    if ([self isTextFieldEmpty:self.emailTextField]) {
+    NSString *text = [self.emailTextField.text removeAllWhitespace];
+    if ([ValidationHelper isTextEmpty:text]) {
         self.emailErrorLabel.text = @"Email Address cannot be empty";
         return false;
     }
-    if (![self textFieldContainsValidEmail:self.emailTextField]) {
+    if (![ValidationHelper textContainsValidEmail:text]) {
         self.emailErrorLabel.text = @"Email Address format incorrect";
         return false;
     }
@@ -112,65 +129,22 @@
 }
 
 - (BOOL)validatePhoneNumber {
-    if ([self isTextFieldEmpty:self.phoneNumberTextField]) {
+    NSString *text = [self.phoneNumberTextField.text removeAllWhitespace];
+    if ([ValidationHelper isTextEmpty:text]) {
         self.phoneNumberErrorLabel.text = @"Phone Number cannot be empty";
         return false;
     }
-    if (![self doesTextFieldContainOnlyNumbers:self.phoneNumberTextField]) {
+    if (![ValidationHelper doesTextContainOnlyNumbers:text]) {
         self.phoneNumberErrorLabel.text = @"Phone Number must contain only numbers";
         return false;
     }
-    if (![self textFieldContainsValidPhone:self.phoneNumberTextField]) {
-        self.phoneNumberErrorLabel.text = @"Phone Number format incorrect";
+    if (![ValidationHelper textContainsValidPhone:text]) {
+        self.phoneNumberErrorLabel.text = @"Phone Number should have exactly 10 numbers";
         return false;
     }
-
+    
     self.phoneNumberErrorLabel.text = @"";
     return true;
-}
-
-- (BOOL) isTextFieldEmpty:(UITextField *) textField {
-    if (textField.text == (id)[NSNull null] || textField.text.length == 0 )
-        return true;
-    return false;
-}
-
-- (BOOL) textFieldContainsValidEmail:(UITextField *) textField {
-        //Create a regex string
-    NSString *stricterFilterString = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}" ;
-    
-        //Create predicate with format matching your regex string
-    NSPredicate *emailTest = [NSPredicate predicateWithFormat:
-                              @"SELF MATCHES %@", stricterFilterString];
-    
-        //return true if email address is valid
-    return [emailTest evaluateWithObject:textField.text];
-}
-
-- (BOOL) doesTextFieldContainNumbers:(UITextField *) textField {
-    NSCharacterSet* digits = [NSCharacterSet decimalDigitCharacterSet];
-    if ([textField.text rangeOfCharacterFromSet:digits].location == NSNotFound)
-        return false;
-    return true;
-}
-
-- (BOOL) doesTextFieldContainOnlyNumbers:(UITextField *) textField {
-    NSCharacterSet* notDigits = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
-    if ([textField.text rangeOfCharacterFromSet:notDigits].location == NSNotFound)
-        return true;
-    return false;
-}
-
-- (BOOL) textFieldContainsValidPhone:(UITextField *) textField {
-        //Create a regex string
-    NSString *stricterFilterString = @"[0-9]{10}" ;
-    
-        //Create predicate with format matching your regex string
-    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:
-                              @"SELF MATCHES %@", stricterFilterString];
-    
-        //return true if email address is valid
-    return [phoneTest evaluateWithObject:textField.text];
 }
 
 - (IBAction)submitButtonPressed:(id)sender {
@@ -180,11 +154,45 @@
                                 AndLast:self.lastNameTextField.text
                                 andEmail:self.emailTextField.text
                                 andPhone:self.phoneNumberTextField.text];
-        //Submit to coordinator to go to next screen
+            //Submit to coordinator to go to next screen
         [self.delegate didSubmitFormWithProfile:profile];
-        //Add Error handling if a user already exists
+            //Add Error handling if a user already exists
     }
 }
 
+    //Declare a delegate, assign your textField to the delegate and then include these methods
 
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    if (textField.tag == 2 || textField.tag == 3)
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    return YES;
+}
+
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    if (textField.tag == 2 || textField.tag == 3)
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+    
+    [self.view endEditing:YES];
+    return YES;
+}
+
+
+- (void)keyboardDidShow:(NSNotification *)notification
+{
+    //Should probably animate this
+    CGSize keyBoardSize = [notification.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    if (self.view.frame.origin.y == 0) {
+        
+        CGRect newFrame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y - keyBoardSize.height, self.view.frame.size.width, self.view.frame.size.height);
+        self.view.frame = newFrame;
+//        self.view.frame.origin.y -= keyboardSize.height;
+    }
+}
+
+-(void)keyboardDidHide:(NSNotification *)notification {
+    //Should probably animate this
+        //The offset should actually be dynamically defined by the height property in the userInfo dictionary in the notification object. For now, this is a rudimentary implementation.
+    [self.view setFrame:CGRectMake(0,0,320,460)];
+}
 @end

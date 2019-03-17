@@ -21,4 +21,14 @@
     // Configure the view for the selected state
 }
 
+-(void)setupWithTitle:(NSString *)title andFieldValue:(NSString *)fieldValue {
+    self.titleLabel.text = title;
+    self.textLabel.text = fieldValue;
+    self.errorLabel.text = @"";
+}
+
+- (void)setErrorText:(NSString *)error {
+    self.errorLabel.text = error;
+}
+
 @end

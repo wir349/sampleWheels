@@ -18,6 +18,7 @@
 		7E6D33BA223DEE3C00056DFC /* AppCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6D33B9223DEE3C00056DFC /* AppCoordinator.m */; };
 		7E6D33BD223DEFFE00056DFC /* Coordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6D33BC223DEFFE00056DFC /* Coordinator.m */; };
 		7E6D33C1223E9C9B00056DFC /* ReviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6D33BF223E9C9B00056DFC /* ReviewTableViewCell.m */; };
+		7E6D395D223ED7E2000803CB /* ValidationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6D395C223ED7E2000803CB /* ValidationHelper.m */; };
 		7E83B62D223BEBB700E681BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E83B62C223BEBB700E681BA /* AppDelegate.m */; };
 		7E83B630223BEBB700E681BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E83B62F223BEBB700E681BA /* ViewController.m */; };
 		7E83B633223BEBB700E681BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E83B631223BEBB700E681BA /* Main.storyboard */; };
@@ -49,6 +50,8 @@
 		7E6D33BC223DEFFE00056DFC /* Coordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Coordinator.m; sourceTree = "<group>"; };
 		7E6D33BE223E9C9B00056DFC /* ReviewTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReviewTableViewCell.h; sourceTree = "<group>"; };
 		7E6D33BF223E9C9B00056DFC /* ReviewTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReviewTableViewCell.m; sourceTree = "<group>"; };
+		7E6D395B223ED7E2000803CB /* ValidationHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ValidationHelper.h; sourceTree = "<group>"; };
+		7E6D395C223ED7E2000803CB /* ValidationHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ValidationHelper.m; sourceTree = "<group>"; };
 		7E83B628223BEBB700E681BA /* SampleWheels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleWheels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E83B62B223BEBB700E681BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7E83B62C223BEBB700E681BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -216,6 +219,8 @@
 		7E76E171223D54B60056B652 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7E6D395B223ED7E2000803CB /* ValidationHelper.h */,
+				7E6D395C223ED7E2000803CB /* ValidationHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -369,6 +374,7 @@
 				7E6D33BD223DEFFE00056DFC /* Coordinator.m in Sources */,
 				7E6D33BA223DEE3C00056DFC /* AppCoordinator.m in Sources */,
 				7E6D33AC223D5CB900056DFC /* SignUpFormViewController.m in Sources */,
+				7E6D395D223ED7E2000803CB /* ValidationHelper.m in Sources */,
 				7E83B63B223BEBBC00E681BA /* main.m in Sources */,
 				7E6D33AB223D5CB900056DFC /* SignUpReviewViewController.m in Sources */,
 				7E6D33B0223D5CC500056DFC /* OnboardingFlowCoordinator.m in Sources */,
@@ -519,14 +525,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F2Y6233LE8;
+				DEVELOPMENT_TEAM = 4T642W568G;
 				INFOPLIST_FILE = SampleWheels/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.waleed.SampleWheels;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wheels.WheelsiOSCodingChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -538,14 +544,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F2Y6233LE8;
+				DEVELOPMENT_TEAM = 4T642W568G;
 				INFOPLIST_FILE = SampleWheels/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.waleed.SampleWheels;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wheels.WheelsiOSCodingChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

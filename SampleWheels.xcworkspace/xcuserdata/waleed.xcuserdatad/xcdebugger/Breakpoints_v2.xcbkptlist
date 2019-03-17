@@ -9,24 +9,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SampleWheels/ViewControllers/Onboarding/SignUpFormViewController.m"
-            timestampString = "574540753.558602"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
-            landmarkName = "-submitButtonPressed:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "SampleWheels/Classes/Coordinators/AppCoordinator.m"
-            timestampString = "574540753.559178"
+            timestampString = "574545768.975118"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
@@ -42,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleWheels/Classes/Coordinators/Onboarding/OnboardingFlowCoordinator.m"
-            timestampString = "574540753.559249"
+            timestampString = "574545768.975189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "112"
@@ -58,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleWheels/Classes/Coordinators/Onboarding/OnboardingFlowCoordinator.m"
-            timestampString = "574540753.559716"
+            timestampString = "574545768.975245"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
@@ -74,12 +58,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleWheels/Classes/Coordinators/Onboarding/OnboardingFlowCoordinator.m"
-            timestampString = "574540753.560084"
+            timestampString = "574545768.975291"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
             endingLineNumber = "79"
             landmarkName = "-didSubmitFormWithProfile:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SampleWheels/ViewControllers/Onboarding/SignUpFormViewController.m"
+            timestampString = "574545768.975343"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "-validatePhoneNumber"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
