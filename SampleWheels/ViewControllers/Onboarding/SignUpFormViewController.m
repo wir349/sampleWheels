@@ -65,7 +65,11 @@
 */
 
 - (BOOL) validateAllFields {
-    return [self validateFirstName] && [self validateLastName] && [self validateEmail] && [self validatePhoneNumber];
+    BOOL firstNameValidation = [self validateFirstName];
+    BOOL lastNameValidation = [self validateLastName];
+    BOOL emailValidation = [self validateEmail];
+    BOOL phoneValidation = [self validatePhoneNumber];
+    return firstNameValidation && lastNameValidation && emailValidation && phoneValidation;
 }
 
 - (BOOL)validateFirstName {
@@ -99,7 +103,7 @@
         self.emailErrorLabel.text = @"Email Address cannot be empty";
         return false;
     }
-    if (![self textFieldContainsEmail:self.emailTextField]) {
+    if (![self textFieldContainsValidEmail:self.emailTextField]) {
         self.emailErrorLabel.text = @"Email Address format incorrect";
         return false;
     }
@@ -116,21 +120,31 @@
         self.phoneNumberErrorLabel.text = @"Phone Number must contain only numbers";
         return false;
     }
+    if (![self textFieldContainsValidPhone:self.phoneNumberTextField]) {
+        self.phoneNumberErrorLabel.text = @"Phone Number format incorrect";
+        return false;
+    }
+
     self.phoneNumberErrorLabel.text = @"";
     return true;
 }
 
 - (BOOL) isTextFieldEmpty:(UITextField *) textField {
     if (textField.text == (id)[NSNull null] || textField.text.length == 0 )
-        return false;
-    return true;
+        return true;
+    return false;
 }
 
-- (BOOL) textFieldContainsEmail:(UITextField *) textField {
-    return false;
-//    if (textField.text == (id)[NSNull null] || textField.text.length == 0 )
-//        return false;
-//    return true;
+- (BOOL) textFieldContainsValidEmail:(UITextField *) textField {
+        //Create a regex string
+    NSString *stricterFilterString = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}" ;
+    
+        //Create predicate with format matching your regex string
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:
+                              @"SELF MATCHES %@", stricterFilterString];
+    
+        //return true if email address is valid
+    return [emailTest evaluateWithObject:textField.text];
 }
 
 - (BOOL) doesTextFieldContainNumbers:(UITextField *) textField {
@@ -145,6 +159,18 @@
     if ([textField.text rangeOfCharacterFromSet:notDigits].location == NSNotFound)
         return true;
     return false;
+}
+
+- (BOOL) textFieldContainsValidPhone:(UITextField *) textField {
+        //Create a regex string
+    NSString *stricterFilterString = @"[0-9]{10}" ;
+    
+        //Create predicate with format matching your regex string
+    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:
+                              @"SELF MATCHES %@", stricterFilterString];
+    
+        //return true if email address is valid
+    return [phoneTest evaluateWithObject:textField.text];
 }
 
 - (IBAction)submitButtonPressed:(id)sender {

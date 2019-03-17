@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) id<SignUpCameraVCDelegate> delegate;
 
-@property (copy, nonatomic) UserProfile *profile;
+@property (nonatomic) UserProfile *profile;
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 

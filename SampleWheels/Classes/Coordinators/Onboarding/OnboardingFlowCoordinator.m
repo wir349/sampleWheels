@@ -76,7 +76,7 @@
 
 - (void)didSubmitFormWithProfile:(UserProfile *)profile {
         //Save Profile to FIRDatabase
-    [self navigateToReviewVCWithProfile:profile];
+    [self navigateToCameraVCWithProfile:profile];
 }
 
     //MARK: SignUpCameraVCDelegate Methods
@@ -107,5 +107,10 @@
 - (void)updatePhoneNumberTo:(nonnull NSString *)phoneNumber forProfile:(nonnull UserProfile *)profile {
     //Save to DB
 }
+
+-(void)dealloc {
+    NSLog(@"Dealloc");
+}
+
 
 @end

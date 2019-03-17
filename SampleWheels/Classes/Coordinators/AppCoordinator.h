@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property UIWindow * window;
 
-@property NSArray *childCoordinators;
+@property NSMutableArray *childCoordinators;
 
 - (instancetype)initWithWindow: (UIWindow *)window;
 

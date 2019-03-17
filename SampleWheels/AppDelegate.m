@@ -12,6 +12,8 @@
 
 @interface AppDelegate ()
 
+@property (nonatomic, strong) AppCoordinator* appCoordinator;
+
 @end
 
 @implementation AppDelegate
@@ -26,8 +28,8 @@
     
 //    let viewController = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
 //    self.window?.rootViewController = viewController
-    AppCoordinator *appCoordinator = [[AppCoordinator alloc] initWithWindow:self.window];
-    [appCoordinator start];
+    self.appCoordinator = [[AppCoordinator alloc] initWithWindow:self.window];
+    [self.appCoordinator start];
     
     return YES;
 }

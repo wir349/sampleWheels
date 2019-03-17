@@ -23,6 +23,7 @@
     self = [super init];
     if (self) {
         self.window = window;
+        self.childCoordinators = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -39,6 +40,7 @@
 
 -(void)displayOnboarding {
     OnboardingFlowCoordinator *onboarding = [[OnboardingFlowCoordinator alloc] initWithParent:self andWindow:self.window];
+    [self.childCoordinators addObject:onboarding];
     [onboarding start];
 }
 
@@ -47,7 +49,11 @@
 }
 
 - (void)didFinishCoordinationForChild:(Coordinator *)coordinator {
-    //Do Nothing for now. Just for Coordinator Protocol implementation
+    //Didn't implement for now. Just for Coordinator Protocol implementation
+}
+
+-(void)dealloc {
+    NSLog(@"Dealloc");
 }
 
 @end
