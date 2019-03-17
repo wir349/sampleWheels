@@ -14,6 +14,10 @@
 		7E6D33AD223D5CB900056DFC /* SignUpCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6D33AA223D5CB900056DFC /* SignUpCameraViewController.m */; };
 		7E6D33B0223D5CC500056DFC /* OnboardingFlowCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6D33AF223D5CC500056DFC /* OnboardingFlowCoordinator.m */; };
 		7E6D33B2223D6A5200056DFC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E6D33B1223D6A5200056DFC /* Images.xcassets */; };
+		7E6D33B4223DDE8C00056DFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E6D33B3223DDE8B00056DFC /* GoogleService-Info.plist */; };
+		7E6D33B7223DDEE700056DFC /* RemoteProfileData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6D33B6223DDEE700056DFC /* RemoteProfileData.m */; };
+		7E6D33BA223DEE3C00056DFC /* AppCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6D33B9223DEE3C00056DFC /* AppCoordinator.m */; };
+		7E6D33BD223DEFFE00056DFC /* Coordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6D33BC223DEFFE00056DFC /* Coordinator.m */; };
 		7E83B62D223BEBB700E681BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E83B62C223BEBB700E681BA /* AppDelegate.m */; };
 		7E83B630223BEBB700E681BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E83B62F223BEBB700E681BA /* ViewController.m */; };
 		7E83B633223BEBB700E681BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E83B631223BEBB700E681BA /* Main.storyboard */; };
@@ -37,6 +41,13 @@
 		7E6D33AE223D5CC500056DFC /* OnboardingFlowCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnboardingFlowCoordinator.h; sourceTree = "<group>"; };
 		7E6D33AF223D5CC500056DFC /* OnboardingFlowCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnboardingFlowCoordinator.m; sourceTree = "<group>"; };
 		7E6D33B1223D6A5200056DFC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7E6D33B3223DDE8B00056DFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7E6D33B5223DDEE600056DFC /* RemoteProfileData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemoteProfileData.h; sourceTree = "<group>"; };
+		7E6D33B6223DDEE700056DFC /* RemoteProfileData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemoteProfileData.m; sourceTree = "<group>"; };
+		7E6D33B8223DEE3C00056DFC /* AppCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCoordinator.h; sourceTree = "<group>"; };
+		7E6D33B9223DEE3C00056DFC /* AppCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppCoordinator.m; sourceTree = "<group>"; };
+		7E6D33BB223DEFFE00056DFC /* Coordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coordinator.h; sourceTree = "<group>"; };
+		7E6D33BC223DEFFE00056DFC /* Coordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Coordinator.m; sourceTree = "<group>"; };
 		7E83B628223BEBB700E681BA /* SampleWheels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleWheels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E83B62B223BEBB700E681BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7E83B62C223BEBB700E681BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -83,6 +94,7 @@
 		7E6D32BC223D5B7C00056DFC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7E6D33B3223DDE8B00056DFC /* GoogleService-Info.plist */,
 				7E6D32BD223D5B7C00056DFC /* Images */,
 				7E6D3315223D5B7D00056DFC /* Fonts */,
 				7E6D33B1223D6A5200056DFC /* Images.xcassets */,
@@ -158,6 +170,10 @@
 			children = (
 				7E76E144223D54B60056B652 /* Home */,
 				7E76E145223D54B60056B652 /* Onboarding */,
+				7E6D33B8223DEE3C00056DFC /* AppCoordinator.h */,
+				7E6D33B9223DEE3C00056DFC /* AppCoordinator.m */,
+				7E6D33BB223DEFFE00056DFC /* Coordinator.h */,
+				7E6D33BC223DEFFE00056DFC /* Coordinator.m */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -204,6 +220,8 @@
 		7E76E186223D54B60056B652 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7E6D33B5223DDEE600056DFC /* RemoteProfileData.h */,
+				7E6D33B6223DDEE700056DFC /* RemoteProfileData.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -309,6 +327,7 @@
 				7E6D33A1223D5B8500056DFC /* Onboarding.storyboard in Resources */,
 				7E83B635223BEBBC00E681BA /* Assets.xcassets in Resources */,
 				7E83B633223BEBB700E681BA /* Main.storyboard in Resources */,
+				7E6D33B4223DDE8C00056DFC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,11 +365,14 @@
 			files = (
 				7E6D33A4223D5C5800056DFC /* UserProfile.m in Sources */,
 				7E83B630223BEBB700E681BA /* ViewController.m in Sources */,
+				7E6D33BD223DEFFE00056DFC /* Coordinator.m in Sources */,
+				7E6D33BA223DEE3C00056DFC /* AppCoordinator.m in Sources */,
 				7E6D33AC223D5CB900056DFC /* SignUpFormViewController.m in Sources */,
 				7E83B63B223BEBBC00E681BA /* main.m in Sources */,
 				7E6D33AB223D5CB900056DFC /* SignUpReviewViewController.m in Sources */,
 				7E6D33B0223D5CC500056DFC /* OnboardingFlowCoordinator.m in Sources */,
 				7E83B62D223BEBB700E681BA /* AppDelegate.m in Sources */,
+				7E6D33B7223DDEE700056DFC /* RemoteProfileData.m in Sources */,
 				7E6D33AD223D5CB900056DFC /* SignUpCameraViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
