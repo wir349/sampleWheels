@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol SignUpReviewVCDelegate <NSObject>
+@protocol SignUpReviewVCDelegate <UITableViewDelegate, UITableViewDataSource>
 
 -(void)updateFirstNameTo:(NSString *)firstName forProfile:(UserProfile *)profile;
 -(void)updateLastNameTo:(NSString *)lastName forProfile:(UserProfile *)profile;
@@ -23,8 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SignUpReviewViewController : UIViewController
 
-@property (nonatomic, copy) UserProfile* profile;
+@property (nonatomic) UserProfile* profile;
 @property (nonatomic, weak) id<SignUpReviewVCDelegate> delegate;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
