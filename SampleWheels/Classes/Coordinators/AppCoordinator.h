@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property NSArray *childCoordinators;
 
+- (instancetype)initWithWindow: (UIWindow *)window;
+
 -(void)start;
 
 -(void)didFinishCoordinationForChild:(Coordinator *)coordinator;

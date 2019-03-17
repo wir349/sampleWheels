@@ -15,7 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface OnboardingFlowCoordinator : Coordinator<SignUpFormVCDelegate>
+@interface OnboardingFlowCoordinator : Coordinator<SignUpFormVCDelegate, SignUpCameraVCDelegate, SignUpReviewVCDelegate>
 
 @property (weak) UIWindow * window;
 @property (weak) Coordinator *parentCoordinator;

@@ -25,7 +25,6 @@
                                                     otherButtonTitles: nil];
         
         [myAlertView show];
-        
     }
 }
 
@@ -52,17 +51,9 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
-    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)savePhoto:(id)sender {
+    [self.delegate didTakePictureForProfile:_profile];
 }
-*/
-
 @end

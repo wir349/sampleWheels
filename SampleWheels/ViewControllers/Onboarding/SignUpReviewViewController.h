@@ -7,10 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserProfile.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol SignUpReviewVCDelegate <NSObject>
+
+-(void)updateFirstNameTo:(NSString *)firstName forProfile:(UserProfile *)profile;
+-(void)updateLastNameTo:(NSString *)lastName forProfile:(UserProfile *)profile;
+-(void)updateEmailTo:(NSString *)email forProfile:(UserProfile *)profile;
+-(void)updatePhoneNumberTo:(NSString *)phoneNumber forProfile:(UserProfile *)profile;
+-(void)updateImageTo:(UIImage *)image forProfile:(UserProfile *)profile;
+
+@end
+
 @interface SignUpReviewViewController : UIViewController
+
+@property (nonatomic, copy) UserProfile* profile;
+@property (nonatomic, weak) id<SignUpReviewVCDelegate> delegate;
 
 @end
 

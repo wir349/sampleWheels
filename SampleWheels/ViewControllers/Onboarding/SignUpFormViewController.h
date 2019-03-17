@@ -7,16 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserProfile.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol SignUpFormVCDelegate
+
+- (void)didSubmitFormWithProfile:(UserProfile *)profile;
+
+@end
+
 @interface SignUpFormViewController : UIViewController
+
+@property (nonatomic, weak) id<SignUpFormVCDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
 @property (weak, nonatomic) IBOutlet UILabel *firstNameErrorLabel;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (weak, nonatomic) IBOutlet UILabel *lastNameErrorLabel;
-@property (weak, nonatomic) IBOutlet UILabel *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UILabel *emailErrorLabel;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumberErrorLabel;

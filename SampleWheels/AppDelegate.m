@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AppCoordinator.h"
 @import Firebase;
 
 @interface AppDelegate ()
@@ -19,6 +20,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [FIRApp configure];
+    
+//    window = UIWindow(frame: UIScreen.main.bounds)
+    [self.window makeKeyAndVisible];
+    
+//    let viewController = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
+//    self.window?.rootViewController = viewController
+    AppCoordinator *appCoordinator = [[AppCoordinator alloc] initWithWindow:self.window];
+    [appCoordinator start];
     
     return YES;
 }

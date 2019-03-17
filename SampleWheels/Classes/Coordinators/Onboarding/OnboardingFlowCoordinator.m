@@ -14,6 +14,11 @@
 
 @property UINavigationController* navController;
 
+-(UIStoryboard *)getOnboardStoryboard;
+
+- (void)navigateToCameraVCWithProfile:(UserProfile *)profile;
+-(void)navigateToReviewVCWithProfile:(UserProfile *)profile;
+
 @end
 
 @implementation OnboardingFlowCoordinator
@@ -31,7 +36,7 @@
 - (void)start {
     UIStoryboard *onboardingStoryboard = [UIStoryboard storyboardWithName:@"Onboarding" bundle:nil];
     SignUpFormViewController *formVC = [onboardingStoryboard instantiateViewControllerWithIdentifier:@"form"];
-    //Set Self as Delegate
+    formVC.delegate = self;
     self.navController = [[UINavigationController alloc] initWithRootViewController:formVC];
     [self.navController setNavigationBarHidden:true];
     
@@ -46,23 +51,61 @@
     //Do Nothing for now. Just for Coordinator Protocol implementation
 }
 
+#pragma mark - Navigation
+
+-(UIStoryboard *)getOnboardStoryboard {
+    UIStoryboard *onboardingStoryboard = [UIStoryboard storyboardWithName:@"Onboarding" bundle:nil];
+    return onboardingStoryboard;
+}
+
+- (void)navigateToCameraVCWithProfile:(UserProfile *)profile {
+    SignUpCameraViewController *cameraVC = [[self getOnboardStoryboard] instantiateViewControllerWithIdentifier:@"camera"];
+    cameraVC.delegate = self;
+    cameraVC.profile = profile;
+    [_navController pushViewController:cameraVC animated:true];
+}
+
+- (void)navigateToReviewVCWithProfile:(UserProfile *)profile {
+    SignUpReviewViewController *reviewVC = [[self getOnboardStoryboard] instantiateViewControllerWithIdentifier:@"review"];
+    reviewVC.delegate = self;
+    reviewVC.profile = profile;
+    [_navController pushViewController:reviewVC animated:true];
+}
+
+    //MARK: SignUpFormVCDelegate Methods
+
 - (void)didSubmitFormWithProfile:(UserProfile *)profile {
-    //Save Profile to FIRDatabase
-    //Create CameraVC Class
-    //Set Self as Delegate
-    //Give Profile object to Camera VC
-    //Push CameraVC on Nav
+        //Save Profile to FIRDatabase
+    [self navigateToReviewVCWithProfile:profile];
 }
 
-- (void)didTakePicture:(UIImage *)pic {
-    //Save Picture to FIRDatabase
-    //Create CameraVC Class
-    //Set Self as Delegate
-    //Give Profile object to Review VC
-    //Push ReviewVC on Nav
+    //MARK: SignUpCameraVCDelegate Methods
+
+- (void)didTakePictureForProfile:(UserProfile *)profile {
+        //Save Picture to FIRDatabase
+    [self navigateToReviewVCWithProfile:profile];
 }
 
-//- (void)changeEmailAddress:
-//Add Methods for changing each field
+    //MARK: SignUpReviewVCDelegate Methods
+
+- (void)updateEmailTo:(nonnull NSString *)email forProfile:(nonnull UserProfile *)profile {
+    //Save to DB
+}
+
+- (void)updateFirstNameTo:(nonnull NSString *)firstName forProfile:(nonnull UserProfile *)profile {
+    //Save to DB
+}
+
+- (void)updateImageTo:(nonnull UIImage *)image forProfile:(nonnull UserProfile *)profile {
+    //Save to DB
+}
+
+- (void)updateLastNameTo:(nonnull NSString *)lastName forProfile:(nonnull UserProfile *)profile {
+    //Save to DB
+}
+
+- (void)updatePhoneNumberTo:(nonnull NSString *)phoneNumber forProfile:(nonnull UserProfile *)profile {
+    //Save to DB
+}
 
 @end

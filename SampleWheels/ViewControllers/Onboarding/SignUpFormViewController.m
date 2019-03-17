@@ -7,7 +7,7 @@
 //
 
 #import "SignUpFormViewController.h"
-#import "UserProfile.h"
+#import "Coordinator.h"
 
 @interface SignUpFormViewController ()
 
@@ -50,9 +50,9 @@
 - (void)clearErrorLabels {
     //I know there's a discussion around using instance variables vs. public properties. I used to have a strong opinion on it but I've forgotten the details. Maybe I'll revisit it in the future.
     self.firstNameErrorLabel.text = @"";
-    self.lastNameTextField.text = @"";
-    self.emailTextField.text = @"";
-    self.phoneNumberTextField.text = @"";
+    self.lastNameErrorLabel.text = @"";
+    self.emailErrorLabel.text = @"";
+    self.phoneNumberErrorLabel.text = @"";
 }
 /*
 #pragma mark - Navigation
@@ -81,10 +81,56 @@
     return true;
 }
 
+- (BOOL)validateLastName {
+    if ([self isTextFieldEmpty:self.lastNameTextField]) {
+        self.lastNameErrorLabel.text = @"Last Name cannot be empty";
+        return false;
+    }
+    if ([self doesTextFieldContainNumbers:self.lastNameTextField]) {
+        self.lastNameErrorLabel.text = @"Last Name cannot contain numbers";
+        return false;
+    }
+    self.lastNameErrorLabel.text = @"";
+    return true;
+}
+
+- (BOOL)validateEmail {
+    if ([self isTextFieldEmpty:self.emailTextField]) {
+        self.emailErrorLabel.text = @"Email Address cannot be empty";
+        return false;
+    }
+    if (![self textFieldContainsEmail:self.emailTextField]) {
+        self.emailErrorLabel.text = @"Email Address format incorrect";
+        return false;
+    }
+    self.emailErrorLabel.text = @"";
+    return true;
+}
+
+- (BOOL)validatePhoneNumber {
+    if ([self isTextFieldEmpty:self.phoneNumberTextField]) {
+        self.phoneNumberErrorLabel.text = @"Phone Number cannot be empty";
+        return false;
+    }
+    if (![self doesTextFieldContainOnlyNumbers:self.phoneNumberTextField]) {
+        self.phoneNumberErrorLabel.text = @"Phone Number must contain only numbers";
+        return false;
+    }
+    self.phoneNumberErrorLabel.text = @"";
+    return true;
+}
+
 - (BOOL) isTextFieldEmpty:(UITextField *) textField {
     if (textField.text == (id)[NSNull null] || textField.text.length == 0 )
         return false;
     return true;
+}
+
+- (BOOL) textFieldContainsEmail:(UITextField *) textField {
+    return false;
+//    if (textField.text == (id)[NSNull null] || textField.text.length == 0 )
+//        return false;
+//    return true;
 }
 
 - (BOOL) doesTextFieldContainNumbers:(UITextField *) textField {
@@ -103,13 +149,15 @@
 
 - (IBAction)submitButtonPressed:(id)sender {
     if ([self validateAllFields]) {
-        //Create UserProfile Model
+        UserProfile *profile = [[UserProfile alloc]
+                                initWithFirstName:self.firstNameTextField.text
+                                AndLast:self.lastNameTextField.text
+                                andEmail:self.emailTextField.text
+                                andPhone:self.phoneNumberTextField.text];
         //Submit to coordinator to go to next screen
+        [self.delegate didSubmitFormWithProfile:profile];
+        //Add Error handling if a user already exists
     }
-//    NSString *firstName = f
-//    NSString *userId = self createUserIdWithFirstName:<#(NSString *)#> andLastName:<#(NSString *)#>
-//    UserProfile *profile = [[UserProfile alloc] init];
-    
 }
 
 
