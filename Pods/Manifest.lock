@@ -57,10 +57,12 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - SHSPhoneComponent (2.32)
 
 DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
+  - SHSPhoneComponent
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -74,6 +76,7 @@ SPEC REPOS:
     - GoogleUtilities
     - leveldb-library
     - nanopb
+    - SHSPhoneComponent
 
 SPEC CHECKSUMS:
   Firebase: 59d557e064217fab6a03ff00baa73c06e73832e6
@@ -86,7 +89,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  SHSPhoneComponent: c491cf87a0d5c3fb11b8f54100d05fd2706cb401
 
-PODFILE CHECKSUM: 62abdc716d8d890bc126fcba9678714976f1b931
+PODFILE CHECKSUM: acccb321f064bbe3e8141655531ee7e249c05d0c
 
 COCOAPODS: 1.6.0

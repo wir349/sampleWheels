@@ -8,4 +8,5 @@ target 'SampleWheels' do
   # Pods for SampleWheels
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'SHSPhoneComponent'
 end

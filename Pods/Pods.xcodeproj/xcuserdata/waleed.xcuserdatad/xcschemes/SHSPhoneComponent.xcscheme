@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "073BB735EF68D75EB6FC2C2B518A6C13"
-               BuildableName = "libPods-SampleWheels.a"
-               BlueprintName = "Pods-SampleWheels"
+               BlueprintIdentifier = "29B94338E231BA09EC3FCB0684225A96"
+               BuildableName = "libSHSPhoneComponent.a"
+               BlueprintName = "SHSPhoneComponent"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "073BB735EF68D75EB6FC2C2B518A6C13"
-            BuildableName = "libPods-SampleWheels.a"
-            BlueprintName = "Pods-SampleWheels"
+            BlueprintIdentifier = "29B94338E231BA09EC3FCB0684225A96"
+            BuildableName = "libSHSPhoneComponent.a"
+            BlueprintName = "SHSPhoneComponent"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
