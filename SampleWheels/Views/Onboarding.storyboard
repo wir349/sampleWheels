@@ -242,9 +242,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1pX-ce-JPM">
                                 <rect key="frame" x="16" y="101" width="288" height="350"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="350" id="dGI-0O-vne"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="default" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="default" rowHeight="80" id="Ro2-UJ-pNy" customClass="ReviewTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="288" height="80"/>
@@ -326,7 +323,7 @@
                                             <outlet property="titleLabel" destination="nLa-yw-QBS" id="fFZ-yJ-xSK"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="profile" rowHeight="80" id="iti-Gi-RKn">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="picture" rowHeight="80" id="iti-Gi-RKn" userLabel="picture" customClass="ProfilePicTableViewCell">
                                         <rect key="frame" x="0.0" y="108" width="288" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iti-Gi-RKn" id="TVm-8b-xM5">
@@ -336,6 +333,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTA-lu-pDu">
                                                     <rect key="frame" x="20" y="25" width="97" height="30"/>
                                                     <state key="normal" title="Choose Photo"/>
+                                                    <connections>
+                                                        <action selector="choosePhotoButtonPressed:" destination="ZLP-Gz-97c" eventType="touchUpInside" id="F3e-qK-9ox"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Photo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbA-Mq-tUx">
                                                     <rect key="frame" x="20" y="5" width="87.5" height="17"/>
@@ -343,7 +343,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i2A-vM-tqo">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfile" translatesAutoresizingMaskIntoConstraints="NO" id="i2A-vM-tqo">
                                                     <rect key="frame" x="208" y="10" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="i2A-vM-tqo" secondAttribute="height" multiplier="1:1" id="dMg-N3-cgP"/>
@@ -360,6 +360,10 @@
                                                 <constraint firstItem="GTA-lu-pDu" firstAttribute="leading" secondItem="TVm-8b-xM5" secondAttribute="leading" constant="20" id="wKZ-WY-ZUl"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="choosePhotoButton" destination="GTA-lu-pDu" id="5rP-vO-h7z"/>
+                                            <outlet property="image" destination="i2A-vM-tqo" id="Ziq-Hq-JyO"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -370,6 +374,7 @@
                             <constraint firstItem="XYD-Iz-bsY" firstAttribute="top" secondItem="C4x-ki-MaI" secondAttribute="topMargin" constant="30" id="Gi9-qd-Cgq"/>
                             <constraint firstItem="XYD-Iz-bsY" firstAttribute="centerX" secondItem="C4x-ki-MaI" secondAttribute="centerXWithinMargins" id="Rdt-5g-fGT"/>
                             <constraint firstItem="1pX-ce-JPM" firstAttribute="centerX" secondItem="Cnf-X6-hVo" secondAttribute="centerX" id="Sgj-jM-7or"/>
+                            <constraint firstItem="Cnf-X6-hVo" firstAttribute="bottom" secondItem="1pX-ce-JPM" secondAttribute="bottom" constant="29" id="mYU-un-xwP"/>
                             <constraint firstItem="1pX-ce-JPM" firstAttribute="top" secondItem="XYD-Iz-bsY" secondAttribute="bottom" constant="28" id="z7c-RH-qql"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cnf-X6-hVo"/>

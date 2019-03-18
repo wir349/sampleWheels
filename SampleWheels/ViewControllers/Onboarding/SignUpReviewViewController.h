@@ -23,13 +23,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface SignUpReviewViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface SignUpReviewViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 //@property (nonatomic) UserProfile* profile;
 @property (nonatomic, weak) id<SignUpReviewVCDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 - (IBAction)editButtonPressed:(id)sender;
+- (IBAction)choosePhotoButtonPressed:(id)sender;
 
 @end
 

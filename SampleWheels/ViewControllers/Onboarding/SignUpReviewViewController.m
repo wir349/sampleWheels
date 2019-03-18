@@ -8,6 +8,7 @@
 
 #import "SignUpReviewViewController.h"
 #import "ReviewTableViewCell.h"
+#import "ProfilePicTableViewCell.h"
 
 typedef enum {
     firstName = 0,
@@ -35,19 +36,19 @@ typedef enum {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return 5;
 }
 
     // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
     // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UserProfile *profile = [self.delegate savedProfile];
     if (indexPath.row != profilePic) {
         ReviewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"default" forIndexPath:indexPath];
         if (cell == nil) {
             cell = [[ReviewTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"default"];
         }
-        UserProfile *profile = [self.delegate savedProfile];
         BOOL editingStatus = ((NSNumber *)self.editingStatus[indexPath.row]).boolValue;
         switch (indexPath.row) {
             case firstName:
@@ -76,7 +77,14 @@ typedef enum {
         return cell;
     }
     else {
-        return nil;
+        ProfilePicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"picture" forIndexPath:indexPath];
+        if (cell == nil) {
+            cell = [[ProfilePicTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"picture"];
+        }
+        if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+            [cell.choosePhotoButton setHidden:YES];
+        cell.image.image = profile.picture;
+        return cell;
     }
 }
 
@@ -112,4 +120,29 @@ typedef enum {
     [self.tableView reloadRowsAtIndexPaths:@[hitIndex] withRowAnimation:UITableViewRowAnimationNone];
     [self.tableView endUpdates];
 }
+
+- (IBAction)choosePhotoButtonPressed:(id)sender {
+//    ProfilePicTableViewCell *cell = (ProfilePicTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    ProfilePicTableViewCell *cell = (ProfilePicTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
+
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    cell.image.image = chosenImage;
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
 @end

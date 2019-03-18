@@ -19,6 +19,7 @@
 		7E6D33C1223E9C9B00056DFC /* ReviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6D33BF223E9C9B00056DFC /* ReviewTableViewCell.m */; };
 		7E6D395D223ED7E2000803CB /* ValidationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6D395C223ED7E2000803CB /* ValidationHelper.m */; };
 		7E6D395F223F2A13000803CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E6D395E223F2A13000803CB /* GoogleService-Info.plist */; };
+		7E6D3962223F5D6B000803CB /* ProfilePicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6D3961223F5D6B000803CB /* ProfilePicTableViewCell.m */; };
 		7E83B62D223BEBB700E681BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E83B62C223BEBB700E681BA /* AppDelegate.m */; };
 		7E83B630223BEBB700E681BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E83B62F223BEBB700E681BA /* ViewController.m */; };
 		7E83B633223BEBB700E681BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E83B631223BEBB700E681BA /* Main.storyboard */; };
@@ -52,6 +53,8 @@
 		7E6D395B223ED7E2000803CB /* ValidationHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ValidationHelper.h; sourceTree = "<group>"; };
 		7E6D395C223ED7E2000803CB /* ValidationHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ValidationHelper.m; sourceTree = "<group>"; };
 		7E6D395E223F2A13000803CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7E6D3960223F5D6B000803CB /* ProfilePicTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfilePicTableViewCell.h; sourceTree = "<group>"; };
+		7E6D3961223F5D6B000803CB /* ProfilePicTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfilePicTableViewCell.m; sourceTree = "<group>"; };
 		7E83B628223BEBB700E681BA /* SampleWheels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleWheels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E83B62B223BEBB700E681BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7E83B62C223BEBB700E681BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 				7E6D33A0223D5B8500056DFC /* Onboarding.storyboard */,
 				7E6D33BE223E9C9B00056DFC /* ReviewTableViewCell.h */,
 				7E6D33BF223E9C9B00056DFC /* ReviewTableViewCell.m */,
+				7E6D3960223F5D6B000803CB /* ProfilePicTableViewCell.h */,
+				7E6D3961223F5D6B000803CB /* ProfilePicTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 				7E6D33BA223DEE3C00056DFC /* AppCoordinator.m in Sources */,
 				7E6D33AC223D5CB900056DFC /* SignUpFormViewController.m in Sources */,
 				7E6D395D223ED7E2000803CB /* ValidationHelper.m in Sources */,
+				7E6D3962223F5D6B000803CB /* ProfilePicTableViewCell.m in Sources */,
 				7E83B63B223BEBBC00E681BA /* main.m in Sources */,
 				7E6D33AB223D5CB900056DFC /* SignUpReviewViewController.m in Sources */,
 				7E6D33B0223D5CC500056DFC /* OnboardingFlowCoordinator.m in Sources */,
