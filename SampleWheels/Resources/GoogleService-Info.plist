@@ -7,34 +7,34 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>484223311165-ovmm5c3etu7fm1a62aj2orjdlp83qdpp.apps.googleusercontent.com</string>
+	<string>531539626298-ahfrbfpuff0ga8e23lfv9av7grn06nq3.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.484223311165-ovmm5c3etu7fm1a62aj2orjdlp83qdpp</string>
+	<string>com.googleusercontent.apps.531539626298-ahfrbfpuff0ga8e23lfv9av7grn06nq3</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAlH6e1-J75sR-QaPciWe7PzT0Q2WZGlKY</string>
+	<string>AIzaSyDBGhTiH-RwRG-pzfs5x58FgTiOfBPI9H0</string>
 	<key>GCM_SENDER_ID</key>
-	<string>484223311165</string>
+	<string>531539626298</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.wheels.WheelsiOSCodingChallenge</string>
+	<string>com.waleed.samplewheels</string>
 	<key>PROJECT_ID</key>
-	<string>wheels-db</string>
+	<string>samplewheels</string>
 	<key>STORAGE_BUCKET</key>
-	<string>wheels-db.appspot.com</string>
+	<string>samplewheels.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:484223311165:ios:d26457906aacdbf2</string>
+	<string>1:531539626298:ios:aa028b434554f490</string>
 	<key>DATABASE_URL</key>
-	<string>https://wheels-db.firebaseio.com</string>
+	<string>https://samplewheels.firebaseio.com</string>
 </dict>
 </plist>
