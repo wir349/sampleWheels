@@ -54,6 +54,7 @@
 }
 
 - (IBAction)savePhoto:(id)sender {
+    _profile.picture = self.imageView.image;
     [self.delegate didTakePictureForProfile:_profile];
 }
 @end
