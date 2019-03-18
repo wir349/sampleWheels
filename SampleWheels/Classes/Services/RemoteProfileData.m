@@ -22,19 +22,12 @@
     self = [super init];
     if (self) {
         self.usersRef = [[[[FIRDatabase database] reference] child:@"onboarding"] child:@"applicants"];
+        //This line just for testing
         [self.usersRef observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
             NSLog(@"Got Snapshot: %@", snapshot);
-                // Get user value
-                //        UserProfile *profile = [UserProfile alloc] initWithFirstName:snapshot.value[FIRSTNAME] AndLast:snapshot.value[LASTNAME] andEmail:<#(nonnull NSString *)#> andPhone:<#(nonnull NSString *)#>
-                //        User *user = [[User alloc] initWithUsername:snapshot.value[@"username"]];
-            
-                // ...
         } withCancelBlock:^(NSError * _Nonnull error) {
             NSLog(@"%@", error.localizedDescription);
         }];
-//        [[[FIRDatabase database] reference] setValue:@"users"];
-
-        
     }
     return self;
 }
@@ -60,7 +53,7 @@
 }
 
 - (void)updateImage:(UIImage *)image forUserId:(NSString *)userId {
-        //TODO: This one
+        //TODO: This one is required?
 }
 
 //This should be updated later to handle asynchronicity
@@ -68,10 +61,6 @@
     [[self.usersRef child:userId] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSLog(@"Got Snapshot: %@", snapshot);
             // Get user value
-//        UserProfile *profile = [UserProfile alloc] initWithFirstName:snapshot.value[FIRSTNAME] AndLast:snapshot.value[LASTNAME] andEmail:<#(nonnull NSString *)#> andPhone:<#(nonnull NSString *)#>
-//        User *user = [[User alloc] initWithUsername:snapshot.value[@"username"]];
-        
-            // ...
     } withCancelBlock:^(NSError * _Nonnull error) {
         NSLog(@"%@", error.localizedDescription);
     }];

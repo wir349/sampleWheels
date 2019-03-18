@@ -99,15 +99,14 @@
     //MARK: SignUpReviewVCDelegate Methods
 
 - (UserProfile *)savedProfile {
-//    UserProfile *saved = [[UserProfile alloc] initWithFirstName:@"Waleed" AndLast:@"Rahman" andEmail:@"wir349@gmail.com" andPhone:@"1234567890"];
-    //Should be retrieving this asynchronously
+    //Should be retrieving this asynchronously but I'm not.
     return _userProfile;
 }
 
 - (void)updateEmailTo:(nonnull NSString *)email {
     //Save to DB
     [self.remoteProfileService updateEmail:email forUserId:_userProfile.userId];
-    _userProfile.email = email; //Not really a good design decision. Saved profile should be retrieved from the db instead.
+    _userProfile.email = email; //Not really correct. Saved profile should be retrieved from the db instead.
 }
 
 - (void)updateFirstNameTo:(nonnull NSString *)firstName {

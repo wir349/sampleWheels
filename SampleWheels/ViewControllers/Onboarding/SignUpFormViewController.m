@@ -39,19 +39,6 @@
 
 @implementation SignUpFormViewController
 
-    //When keyboard pops up, screen should move up.
-    //Next goes to the next box.
-    //Phone number box's next goes to the next page
-    //Validate each box, show small red etex
-    //First name validation - No numbers
-    //Last name validation - No numbers
-    //Email name validation - Email Regex
-    //Phone Number Validation - should autoformat
-    //Can't go to next screen until all fields are filled out properly
-    //Fields go to coordinator, which creates UserProfile object.
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self hideKeyboardTapThrough];
@@ -61,8 +48,6 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-        //[[self.view viewWithTag:textField.tag+1] becomeFirstResponder];
-    
     UIView *view = [self.view viewWithTag:textField.tag + 1];
     if (!view)
         [self submitButtonPressed: self];
@@ -212,14 +197,12 @@
         
         CGRect newFrame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y - keyBoardSize.height, self.view.frame.size.width, self.view.frame.size.height);
         self.view.frame = newFrame;
-//        self.view.frame.origin.y -= keyboardSize.height;
     }
 }
 
 -(void)keyboardDidHide:(NSNotification *)notification {
     //Should probably animate this
         //The offset should actually be dynamically defined by the height property in the userInfo dictionary in the notification object. For now, this is a rudimentary implementation.
-//    CGSize keyBoardSize = [notification.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     if (self.view.frame.origin.y < 0){
         CGRect newFrame = CGRectMake(self.view.frame.origin.x, 0, self.view.frame.size.width, self.view.frame.size.height);
         self.view.frame = newFrame;

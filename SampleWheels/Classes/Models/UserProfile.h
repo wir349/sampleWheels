@@ -15,8 +15,6 @@
 #define PHONE @"phone"
 #define PICTURE @"profilePic"
 
-
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UserProfile: NSObject
@@ -27,12 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy) NSString * lastName;
 @property(nonatomic, copy) NSString * phoneNumber;
 @property(nonatomic) UIImage *picture;
-
-////@property (nonatomic, retain)  NSString * invitationCode;
-//@property (NS_NONATOMIC_IOSONLY, copy) NSString * firstName;
-//@property (NS_NONATOMIC_IOSONLY, copy) NSString * lastName;
-//@property (NS_NONATOMIC_IOSONLY, copy) NSString * email;
-//@property (NS_NONATOMIC_IOSONLY, copy) NSString * phone;
 
 -(id)initWithDictionary:(NSDictionary *)userDictionary;
 
