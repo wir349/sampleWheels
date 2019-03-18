@@ -83,9 +83,25 @@ typedef enum {
 - (IBAction)editButtonPressed:(id)sender {
     CGPoint hitpoint = [sender convertPoint:CGPointZero toView:self.tableView];
     NSIndexPath *hitIndex = [self.tableView indexPathForRowAtPoint:hitpoint];
-//    ReviewTableViewCell *cell = (ReviewTableViewCell *)[self.tableView cellForRowAtIndexPath:hitIndex];
+    ReviewTableViewCell *cell = (ReviewTableViewCell *)[self.tableView cellForRowAtIndexPath:hitIndex];
     BOOL editingStatus = ((NSNumber *)self.editingStatus[hitIndex.row]).boolValue;
     if (editingStatus == YES) {
+        switch (hitIndex.row) {
+            case firstName:
+                [self.delegate updateFirstNameTo:cell.textField.text];
+                break;
+            case lastName:
+                [self.delegate updateLastNameTo:cell.textField.text];
+                break;
+            case emailAddress:
+                [self.delegate updateEmailTo:cell.textField.text];
+                break;
+            case phoneNumber:
+                [self.delegate updatePhoneNumberTo:cell.textField.text];
+                break;
+            default:
+                break;
+        }
         self.editingStatus[hitIndex.row] = @NO;
     }
     else {

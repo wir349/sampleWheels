@@ -15,11 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(UserProfile *)savedProfile;
 
--(void)updateFirstNameTo:(NSString *)firstName forProfile:(UserProfile *)profile;
--(void)updateLastNameTo:(NSString *)lastName forProfile:(UserProfile *)profile;
--(void)updateEmailTo:(NSString *)email forProfile:(UserProfile *)profile;
--(void)updatePhoneNumberTo:(NSString *)phoneNumber forProfile:(UserProfile *)profile;
--(void)updateImageTo:(UIImage *)image forProfile:(UserProfile *)profile;
+-(void)updateFirstNameTo:(NSString *)firstName;
+-(void)updateLastNameTo:(NSString *)lastName;
+-(void)updateEmailTo:(NSString *)email;
+-(void)updatePhoneNumberTo:(NSString *)phoneNumber;
+-(void)updateImageTo:(UIImage *)image;
 
 @end
 

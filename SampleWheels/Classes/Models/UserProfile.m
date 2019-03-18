@@ -18,19 +18,13 @@
 
 -(id)initWithDictionary:(NSDictionary *)userDictionary {
     if((self = [super init])) {
-//        _userId = [userDictionary[USER_ID_KEY] integerValue];
-//        _email = userDictionary[USER_EMAIL_KEY];
-//        _firstName = userDictionary[USER_FIRST_NAME_KEY];
-//        _lastName = userDictionary[USER_LAST_NAME_KEY];
-//        _passengerId = [userDictionary[PASSENGER_ID_KEY] integerValue];
-//        _accessType = [userDictionary[ACCESS_TYPE_KEY] integerValue];
-//        _admin = [userDictionary[ADMIN_KEY] integerValue];
-//        _companyId = [userDictionary[COMPANY_ID_KEY] integerValue];
-//        _accessTokenId = [userDictionary[USER_ID_KEY] integerValue];
-//        _accessToken = userDictionary[ACCESS_TOKEN_KEY];
-//        _numberOfUserHelped = [userDictionary[NUMBER_OF_USER_HELPED_KEY] integerValue];
-//        _mobileNumber = userDictionary[MOBILE_NUMBER_KEY];
-//        _invitationCode = userDictionary[INVITATION_CODE_KEY];
+        _firstName = userDictionary[FIRSTNAME];
+        _lastName = userDictionary[LASTNAME];
+        _email = userDictionary[EMAIL];
+        _phoneNumber = userDictionary[PHONE];
+        
+        NSData *decodedData = [[NSData alloc] initWithBase64EncodedString:userDictionary[PICTURE] options:0];
+        _picture = [UIImage imageWithData:decodedData];
     }
     return self;
 }
@@ -80,6 +74,21 @@
 //    }
 //    return nil;
 //}
+
+-(NSDictionary *)toDictionary {
+    NSMutableDictionary* dict = [@{
+             FIRSTNAME: self.firstName,
+             LASTNAME: _lastName,
+             EMAIL: _email,
+             PHONE: _phoneNumber
+             } mutableCopy];
+    if (_picture != nil) {
+        NSData *imageData = UIImagePNGRepresentation(_picture);
+        NSString *imageString = [imageData base64EncodedStringWithOptions:0];
+        dict[PICTURE] = imageString;
+    }
+    return dict;
+}
 
 
 @end

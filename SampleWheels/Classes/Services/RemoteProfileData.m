@@ -11,7 +11,7 @@
 
 @interface RemoteProfileData ()
 
-@property (strong, nonatomic) FIRDatabaseReference *ref;
+@property (strong, nonatomic) FIRDatabaseReference *usersRef;
 
 @end
 
@@ -21,10 +21,61 @@
 {
     self = [super init];
     if (self) {
-        self.ref = [[FIRDatabase database] reference];
+        self.usersRef = [[[[FIRDatabase database] reference] child:@"onboarding"] child:@"applicants"];
+        [self.usersRef observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+            NSLog(@"Got Snapshot: %@", snapshot);
+                // Get user value
+                //        UserProfile *profile = [UserProfile alloc] initWithFirstName:snapshot.value[FIRSTNAME] AndLast:snapshot.value[LASTNAME] andEmail:<#(nonnull NSString *)#> andPhone:<#(nonnull NSString *)#>
+                //        User *user = [[User alloc] initWithUsername:snapshot.value[@"username"]];
+            
+                // ...
+        } withCancelBlock:^(NSError * _Nonnull error) {
+            NSLog(@"%@", error.localizedDescription);
+        }];
+//        [[[FIRDatabase database] reference] setValue:@"users"];
+
+        
     }
     return self;
 }
 
+- (void)saveProfile:(UserProfile *)profile {
+    [[self.usersRef child:profile.userId] setValue: [profile toDictionary]];
+}
+
+- (void)updateFirstName:(NSString *)firstName forUserId:(NSString *)userId {
+    [[self.usersRef child:userId] setValue:firstName forKey:FIRSTNAME];
+}
+
+- (void)updateLastName:(NSString *)lastName forUserId:(NSString *)userId {
+    [[self.usersRef child:userId] setValue:lastName forKey:LASTNAME];
+}
+
+- (void)updateEmail:(NSString *)email forUserId:(NSString *)userId {
+    [[self.usersRef child:userId] setValue:email forKey:EMAIL];
+}
+
+- (void)updatePhoneNumber:(NSString *)number forUserId:(NSString *)userId {
+    [[self.usersRef child:userId] setValue:number forKey:PHONE];
+}
+
+- (void)updateImage:(UIImage *)image forUserId:(NSString *)userId {
+        //TODO: This one
+}
+
+//This should be updated later to handle asynchronicity
+- (UserProfile *)getProfileForUserId:(NSString *)userId {
+    [[self.usersRef child:userId] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSLog(@"Got Snapshot: %@", snapshot);
+            // Get user value
+//        UserProfile *profile = [UserProfile alloc] initWithFirstName:snapshot.value[FIRSTNAME] AndLast:snapshot.value[LASTNAME] andEmail:<#(nonnull NSString *)#> andPhone:<#(nonnull NSString *)#>
+//        User *user = [[User alloc] initWithUsername:snapshot.value[@"username"]];
+        
+            // ...
+    } withCancelBlock:^(NSError * _Nonnull error) {
+        NSLog(@"%@", error.localizedDescription);
+    }];
+    return nil;
+}
 
 @end

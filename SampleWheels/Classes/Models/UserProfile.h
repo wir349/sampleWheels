@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+    //I should be using something better but for now MACROS will do and these should be in a separate file
+#define FIRSTNAME @"firstName"
+#define LASTNAME @"lastName"
+#define EMAIL @"emailAddress"
+#define PHONE @"phoneNumber"
+#define PICTURE @"profilePic"
+
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UserProfile: NSObject
@@ -17,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy) NSString * firstName;
 @property(nonatomic, copy) NSString * lastName;
 @property(nonatomic, copy) NSString * phoneNumber;
-
+@property(nonatomic) UIImage *picture;
 
 ////@property (nonatomic, retain)  NSString * invitationCode;
 //@property (NS_NONATOMIC_IOSONLY, copy) NSString * firstName;
@@ -29,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(id)initWithFirstName:(NSString *)firstName AndLast:(NSString *)lastName andEmail: (NSString *)email andPhone:(NSString *)phone;
 
-//+(UserModel*) getSignedInUser;
+-(NSDictionary *)toDictionary;
 
 
 @end

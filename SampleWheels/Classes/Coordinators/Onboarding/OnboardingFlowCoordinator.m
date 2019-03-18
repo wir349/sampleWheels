@@ -9,15 +9,20 @@
 #import "OnboardingFlowCoordinator.h"
 #import "SignUpFormViewController.h"
 #import "UserProfile.h"
+#import "RemoteProfileData.h"
 
 @interface OnboardingFlowCoordinator ()
 
 @property UINavigationController* navController;
 
+@property (nonatomic) RemoteProfileData* remoteProfileService;
+@property (nonatomic) UserProfile* userProfile;
+
 -(UIStoryboard *)getOnboardStoryboard;
 
 - (void)navigateToCameraVCWithProfile:(UserProfile *)profile;
 -(void)navigateToReviewVCWithProfile:(UserProfile *)profile;
+
 
 @end
 
@@ -29,6 +34,7 @@
         self.parentCoordinator = coordinator;
         self.window = window;
         self.childCoordinators = [[NSArray alloc] init];
+        self.remoteProfileService = [[RemoteProfileData alloc] init];
     }
     return self;
 }
@@ -71,47 +77,57 @@
     reviewVC.delegate = self;
 //    reviewVC.profile = profile;
     [_navController pushViewController:reviewVC animated:true];
+    [self.remoteProfileService getProfileForUserId:profile.userId];
 }
 
     //MARK: SignUpFormVCDelegate Methods
 
 - (void)didSubmitFormWithProfile:(UserProfile *)profile {
-        //Save Profile to FIRDatabase
+    [self.remoteProfileService saveProfile:profile];
+    _userProfile = profile;
     [self navigateToCameraVCWithProfile:profile];
 }
 
     //MARK: SignUpCameraVCDelegate Methods
 
 - (void)didTakePictureForProfile:(UserProfile *)profile {
-        //Save Picture to FIRDatabase
+    [self.remoteProfileService updateImage:profile.picture forUserId:profile.userId];
+    _userProfile = profile;
     [self navigateToReviewVCWithProfile:profile];
 }
 
     //MARK: SignUpReviewVCDelegate Methods
 
 - (UserProfile *)savedProfile {
-    UserProfile *saved = [[UserProfile alloc] initWithFirstName:@"Waleed" AndLast:@"Rahman" andEmail:@"wir349@gmail.com" andPhone:@"1234567890"];
-    return saved;
+//    UserProfile *saved = [[UserProfile alloc] initWithFirstName:@"Waleed" AndLast:@"Rahman" andEmail:@"wir349@gmail.com" andPhone:@"1234567890"];
+    //Should be retrieving this asynchronously
+    return _userProfile;
 }
 
-- (void)updateEmailTo:(nonnull NSString *)email forProfile:(nonnull UserProfile *)profile {
+- (void)updateEmailTo:(nonnull NSString *)email {
     //Save to DB
+    [self.remoteProfileService updateEmail:email forUserId:_userProfile.userId];
+    _userProfile.email = email; //Not really a good design decision. Saved profile should be retrieved from the db instead.
 }
 
-- (void)updateFirstNameTo:(nonnull NSString *)firstName forProfile:(nonnull UserProfile *)profile {
-    //Save to DB
+- (void)updateFirstNameTo:(nonnull NSString *)firstName {
+    [self.remoteProfileService updateFirstName:firstName forUserId:_userProfile.userId];
+    _userProfile.firstName = firstName; //Again, Not really a good design decision. Saved profile should be retrieved from the db instead.
 }
 
-- (void)updateImageTo:(nonnull UIImage *)image forProfile:(nonnull UserProfile *)profile {
-    //Save to DB
+- (void)updateImageTo:(nonnull UIImage *)image {
+    [self.remoteProfileService updateImage:image forUserId:_userProfile.userId];
+    _userProfile.picture = image;
 }
 
-- (void)updateLastNameTo:(nonnull NSString *)lastName forProfile:(nonnull UserProfile *)profile {
-    //Save to DB
+- (void)updateLastNameTo:(nonnull NSString *)lastName {
+    [self.remoteProfileService updateLastName:lastName forUserId:_userProfile.userId];
+    _userProfile.lastName = lastName;
 }
 
-- (void)updatePhoneNumberTo:(nonnull NSString *)phoneNumber forProfile:(nonnull UserProfile *)profile {
-    //Save to DB
+- (void)updatePhoneNumberTo:(nonnull NSString *)phoneNumber {
+    [self.remoteProfileService updatePhoneNumber:phoneNumber forUserId:_userProfile.userId];
+    _userProfile.phoneNumber = phoneNumber;
 }
 
 -(void)dealloc {
