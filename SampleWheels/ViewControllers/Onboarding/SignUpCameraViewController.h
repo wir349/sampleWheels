@@ -26,13 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
 
-- (IBAction)takePhoto:  (UIButton *)sender;
-//- (IBAction)selectPhoto:(UIButton *)sender;
-
-//Add Default Image
-//Set default image
-//On save, only send when photo is taken, attach to userProfile object
-//Add permissions
+- (IBAction)takePhoto: (UIButton *)sender;
 
 - (IBAction)savePhoto:(id)sender;
 

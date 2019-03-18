@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleWheels/Classes/Coordinators/AppCoordinator.m"
-            timestampString = "574572921.863432"
+            timestampString = "574579150.785259"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleWheels/Classes/Coordinators/Onboarding/OnboardingFlowCoordinator.m"
-            timestampString = "574572921.863673"
+            timestampString = "574579150.785331"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleWheels/ViewControllers/Onboarding/SignUpReviewViewController.m"
-            timestampString = "574572921.863875"
+            timestampString = "574579150.785401"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleWheels/ViewControllers/Onboarding/SignUpReviewViewController.m"
-            timestampString = "574572921.8640471"
+            timestampString = "574579150.785471"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleWheels/Classes/Coordinators/Onboarding/OnboardingFlowCoordinator.m"
-            timestampString = "574572921.864132"
+            timestampString = "574579150.785525"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleWheels/Classes/Services/RemoteProfileData.m"
-            timestampString = "574572921.86426"
+            timestampString = "574579150.785576"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleWheels/Classes/Models/UserProfile.m"
-            timestampString = "574572921.864462"
+            timestampString = "574579150.785643"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "85"
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleWheels/Classes/Services/RemoteProfileData.m"
-            timestampString = "574572921.864536"
+            timestampString = "574579150.785692"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
@@ -134,59 +134,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SampleWheels/Classes/Services/RemoteProfileData.m"
-            timestampString = "574572921.864639"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "-getProfileForUserId:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__41-[RemoteProfileData getProfileForUserId:]_block_invoke"
-                  moduleName = "SampleWheels"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/waleed/Documents/Workspaces/iOS/SampleWheels/SampleWheels/Classes/Services/RemoteProfileData.m"
-                  timestampString = "574566374.435918"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "75"
-                  endingLineNumber = "75"
-                  offsetFromSymbolStart = "73">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__41-[RemoteProfileData getProfileForUserId:]_block_invoke_2"
-                  moduleName = "SampleWheels"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/waleed/Documents/Workspaces/iOS/SampleWheels/SampleWheels/Classes/Services/RemoteProfileData.m"
-                  timestampString = "574566374.4397351"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleWheels/Classes/Services/RemoteProfileData.m"
-            timestampString = "574572921.864749"
+            timestampString = "574579150.78581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
@@ -202,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleWheels/Classes/Services/RemoteProfileData.m"
-            timestampString = "574572921.864846"
+            timestampString = "574579150.785866"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
@@ -218,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleWheels/Classes/Services/RemoteProfileData.m"
-            timestampString = "574572921.864961"
+            timestampString = "574579150.785921"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
@@ -234,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleWheels/Classes/Services/RemoteProfileData.m"
-            timestampString = "574572921.865073"
+            timestampString = "574579150.785977"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "33"
@@ -250,7 +202,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleWheels/Classes/Services/RemoteProfileData.m"
-            timestampString = "574572921.865175"
+            timestampString = "574579150.786033"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
@@ -266,12 +218,12 @@
                   moduleName = "SampleWheels"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/waleed/Documents/Workspaces/iOS/SampleWheels/SampleWheels/Classes/Services/RemoteProfileData.m"
-                  timestampString = "574566374.466856"
+                  timestampString = "574577902.020596"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "25"
                   endingLineNumber = "25"
-                  offsetFromSymbolStart = "331">
+                  offsetFromSymbolStart = "356">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -281,14 +233,44 @@
                   moduleName = "SampleWheels"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/waleed/Documents/Workspaces/iOS/SampleWheels/SampleWheels/Classes/Services/RemoteProfileData.m"
-                  timestampString = "574566374.469983"
+                  timestampString = "574577902.0223891"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "26"
                   endingLineNumber = "26"
-                  offsetFromSymbolStart = "51">
+                  offsetFromSymbolStart = "48">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SampleWheels/ViewControllers/Onboarding/SignUpFormViewController.m"
+            timestampString = "574579150.786088"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "-textFieldShouldEndEditing:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SampleWheels/ViewControllers/Onboarding/SignUpFormViewController.m"
+            timestampString = "574579150.786136"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "227"
+            endingLineNumber = "227">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
