@@ -42,7 +42,7 @@
                                             <outlet property="delegate" destination="lzQ-bx-QOo" id="6LJ-I6-NgB"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your first name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgI-3K-txu">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your first name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qgI-3K-txu">
                                         <rect key="frame" x="0.0" y="55.5" width="220" height="12"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="10"/>
                                         <color key="textColor" red="0.85626953124999994" green="0.14616309224165849" blue="0.1792641285812695" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -70,7 +70,7 @@
                                             <outlet property="delegate" destination="lzQ-bx-QOo" id="PnB-J9-mLD"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Sx-rt-X4D">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5Sx-rt-X4D">
                                         <rect key="frame" x="0.0" y="133" width="220" height="12"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="10"/>
                                         <color key="textColor" red="0.85626953120000004" green="0.14616309220000001" blue="0.17926412859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -98,7 +98,7 @@
                                             <outlet property="delegate" destination="lzQ-bx-QOo" id="nf1-Mv-Klt"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5Q-MM-CIR">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="p5Q-MM-CIR">
                                         <rect key="frame" x="0.0" y="210.5" width="220" height="12"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="10"/>
                                         <color key="textColor" red="0.85626953120000004" green="0.14616309220000001" blue="0.17926412859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -117,7 +117,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gMs-Zj-Kyu">
+                                    <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gMs-Zj-Kyu" customClass="SHSPhoneTextField">
                                         <rect key="frame" x="0.0" y="254" width="220" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -126,7 +126,7 @@
                                             <outlet property="delegate" destination="lzQ-bx-QOo" id="nvf-gD-p1h"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8e-eG-jTf">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="I8e-eG-jTf">
                                         <rect key="frame" x="0.0" y="288" width="220" height="12"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="10"/>
                                         <color key="textColor" red="0.85626953120000004" green="0.14616309220000001" blue="0.17926412859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -218,6 +218,7 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="Sjo-cy-axU" id="nRh-Zw-EWA"/>
+                        <outlet property="takePhotoButton" destination="ndD-om-D6r" id="YGa-Td-vJY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ha3-TY-cOL" userLabel="First Responder" sceneMemberID="firstResponder"/>

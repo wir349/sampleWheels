@@ -54,8 +54,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self hideKeyboardTapThrough];
     [self clearErrorLabels];
+    [self.phoneNumberTextField.formatter setDefaultOutputPattern:@"(###) ###-####"];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -129,16 +130,18 @@
 }
 
 - (BOOL)validatePhoneNumber {
-    NSString *text = [self.phoneNumberTextField.text removeAllWhitespace];
-    if ([ValidationHelper isTextEmpty:text]) {
+    NSCharacterSet *notAllowedChars = [[NSCharacterSet characterSetWithCharactersInString:@"1234567890"] invertedSet];
+    NSString *onlyNumbersString = [[self.phoneNumberTextField.text componentsSeparatedByCharactersInSet:notAllowedChars] componentsJoinedByString:@""];
+
+    if ([ValidationHelper isTextEmpty:onlyNumbersString]) {
         self.phoneNumberErrorLabel.text = @"Phone Number cannot be empty";
         return false;
     }
-    if (![ValidationHelper doesTextContainOnlyNumbers:text]) {
+    if (![ValidationHelper doesTextContainOnlyNumbers:onlyNumbersString]) {
         self.phoneNumberErrorLabel.text = @"Phone Number must contain only numbers";
         return false;
     }
-    if (![ValidationHelper textContainsValidPhone:text]) {
+    if (![ValidationHelper textContainsValidPhone:onlyNumbersString]) {
         self.phoneNumberErrorLabel.text = @"Phone Number should have exactly 10 numbers";
         return false;
     }
@@ -172,11 +175,34 @@
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
     if (textField.tag == 2 || textField.tag == 3)
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
-    
+    switch (textField.tag) {
+        case 0:
+            [self validateFirstName];
+            break;
+        case 1:
+            [self validateLastName];
+            break;
+        case 2:
+            [self validateEmail];
+            break;
+        case 3:
+            [self validatePhoneNumber];
+            break;
+        default:
+            break;
+    }
     [self.view endEditing:YES];
     return YES;
 }
 
+- (void)hideKeyboardTapThrough {
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tapGestureRecognizer];
+}
+
+-(void)dismissKeyboard {
+    [self.view endEditing:YES];
+}
 
 - (void)keyboardDidShow:(NSNotification *)notification
 {
@@ -193,6 +219,10 @@
 -(void)keyboardDidHide:(NSNotification *)notification {
     //Should probably animate this
         //The offset should actually be dynamically defined by the height property in the userInfo dictionary in the notification object. For now, this is a rudimentary implementation.
-    [self.view setFrame:CGRectMake(0,0,320,460)];
+//    CGSize keyBoardSize = [notification.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    if (self.view.frame.origin.y < 0){
+        CGRect newFrame = CGRectMake(self.view.frame.origin.x, 0, self.view.frame.size.width, self.view.frame.size.height);
+        self.view.frame = newFrame;
+    }
 }
 @end

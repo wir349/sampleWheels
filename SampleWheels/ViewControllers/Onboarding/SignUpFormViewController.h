@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UserProfile.h"
+#import "SHSPhoneLibrary.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -27,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *lastNameErrorLabel;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UILabel *emailErrorLabel;
-@property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
+@property (weak, nonatomic) IBOutlet SHSPhoneTextField *phoneNumberTextField;
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumberErrorLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
