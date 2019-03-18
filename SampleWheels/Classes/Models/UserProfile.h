@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
     //I should be using something better but for now MACROS will do and these should be in a separate file
-#define FIRSTNAME @"firstName"
-#define LASTNAME @"lastName"
-#define EMAIL @"emailAddress"
-#define PHONE @"phoneNumber"
+#define FIRSTNAME @"first_name"
+#define LASTNAME @"last_name"
+#define EMAIL @"email"
+#define PHONE @"phone"
 #define PICTURE @"profilePic"
 
 

@@ -44,19 +44,19 @@
 }
 
 - (void)updateFirstName:(NSString *)firstName forUserId:(NSString *)userId {
-    [[self.usersRef child:userId] setValue:firstName forKey:FIRSTNAME];
+    [[[self.usersRef child:userId] child:FIRSTNAME] setValue:firstName];
 }
 
 - (void)updateLastName:(NSString *)lastName forUserId:(NSString *)userId {
-    [[self.usersRef child:userId] setValue:lastName forKey:LASTNAME];
+    [[[self.usersRef child:userId] child:LASTNAME] setValue:lastName];
 }
 
 - (void)updateEmail:(NSString *)email forUserId:(NSString *)userId {
-    [[self.usersRef child:userId] setValue:email forKey:EMAIL];
+    [[[self.usersRef child:userId] child:EMAIL] setValue:email];
 }
 
 - (void)updatePhoneNumber:(NSString *)number forUserId:(NSString *)userId {
-    [[self.usersRef child:userId] setValue:number forKey:PHONE];
+    [[[self.usersRef child:userId] child:PHONE] setValue:number];
 }
 
 - (void)updateImage:(UIImage *)image forUserId:(NSString *)userId {
