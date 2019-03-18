@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) UserProfile *profile;
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
 
 - (IBAction)takePhoto:  (UIButton *)sender;
 //- (IBAction)selectPhoto:(UIButton *)sender;

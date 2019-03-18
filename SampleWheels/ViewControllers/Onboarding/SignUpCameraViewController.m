@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        
+        [_takePhotoButton setEnabled:NO];
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
                                                               message:@"Device has no camera"
                                                              delegate:nil
